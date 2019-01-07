@@ -3,24 +3,18 @@ package testRun;
 public class BeeperInMiddle extends Karel {
 
     static {
-        room = new int[] {5,6,7,6,5,6,7,6,5,6,7,6,5};
+        room = new int[] {7,7,7,7,7,7,7};
     }
-    
+
     public static void main(String[] args) {
         int length = getLength();
+        turnLeft();
+        int height = getLength();
         turnAround();
+        move(height/2);
+        turnRight();
         move(length/2);
-        if (even(length)) {
-            putBeeper();            
-            move();
-            putBeeper();            
-        } else {
-            putBeeper();            
-        }
-    }
-    
-    private static boolean even(int length) {
-        return length % 2 == 0;
+        putBeeper();
     }
 
     public static void move(int distance) {
@@ -40,25 +34,11 @@ public class BeeperInMiddle extends Karel {
         }
         return m;
     }
-
-        
     
-//    public static void goToWall() {
-//        while(notBlockedByWall()) {
-//            move();
-//        }
-//    }
-//
-//    public static void countMoves() {
-//
-//        int m = 0;
-//        if (notBlockedByWall())
-//            m++;
-//        }
-//    }
-//    public static void turnAroundAndCount() {
-//        
-//            
-//        }
-//    }
+    private static void turnRight() {
+        turnLeft();
+        turnLeft();
+        turnLeft();
+    }
+
 }
