@@ -17,44 +17,27 @@ public class Checkerboard extends Karel {
     }
 
     private static boolean goUp(boolean facingEast) {
-        if (facingEast) {
-            if (goUpLeft()) {
-                return true;
-            } else {
-                return false;
-            }
+        turn(facingEast);
+        if (notBlockedByWall()) {
+            move();
+            turn(facingEast);
+            return true;
         } else {
-            if (goUpRight()) {
-                return true;
-            } else {
-                return false;
-            }
+            return false;
+        }
+    }
+
+    private static void turn(boolean facingEast) {
+        if (facingEast) {
+            turnLeft();
+        } else {
+            turnRight();
         }
     }
 
     private static void moveToWall() {
         while (notBlockedByWall()) {
             move();
-        }
-    }
-    public static boolean goUpLeft()  {
-        turnLeft();
-        if (notBlockedByWall()) {
-            move();
-            turnLeft();
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public static boolean goUpRight()  {
-        turnRight();
-        if (notBlockedByWall()) {
-            move();
-            turnRight();
-            return true;
-        } else {
-            return false;
         }
     }
     private static void turnRight() {
