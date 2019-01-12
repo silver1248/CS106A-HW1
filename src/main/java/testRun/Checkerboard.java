@@ -9,10 +9,12 @@ public class Checkerboard extends Karel {
     public static void main(String[] args) {
         boolean facingEast = true;
         boolean notInCorner = true;
+        boolean shouldPutBeeper = true;
         while (notInCorner) {
-            moveToWall();
+            moveToWall(shouldPutBeeper);
             notInCorner = goUp(facingEast);
             facingEast = !facingEast;
+            shouldPutBeeper = notBlockedByWall();
         }
     }
 
@@ -35,10 +37,15 @@ public class Checkerboard extends Karel {
         }
     }
 
-    private static void moveToWall() {
+    private static boolean moveToWall(boolean shouldPutBeeper) {
         while (notBlockedByWall()) {
+            shouldPutBeeper = !shouldPutBeeper;
+            if (shouldPutBeeper) {
+                putBeeper();
+            }
             move();
         }
+        return shouldPutBeeper;
     }
     private static void turnRight() {
         turnLeft();
