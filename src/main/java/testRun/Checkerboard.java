@@ -3,7 +3,7 @@ package testRun;
 public class Checkerboard extends Karel {
 
     static {
-        room = new int[] {4,4,4,4};
+        room = new int[] {3,3,3};
     }
 
     public static void main(String[] args) {
@@ -45,6 +45,7 @@ public class Checkerboard extends Karel {
             }
             move();
         }
+        shouldPutBeeper = !shouldPutBeeper;
         return shouldPutBeeper;
     }
     private static void turnRight() {
