@@ -21,7 +21,7 @@ public class Checkerboard extends Karel {
     private static boolean goUp(boolean facingEast) {
         turn(facingEast);
         if (notBlockedByWall()) {
-            move();
+            move(shouldPutBeeper);
             turn(facingEast);
             return true;
         } else {
@@ -52,6 +52,10 @@ public class Checkerboard extends Karel {
         turnLeft();
         turnLeft();
         turnLeft();
+    }
+    public static void move(boolean shouldPutBeeper) {
+        move();
+        shouldPutBeeper = !shouldPutBeeper;
     }
 
 }
