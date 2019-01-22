@@ -3,25 +3,25 @@ package testRun;
 public class Checkerboard extends Karel {
 
     static {
-        room = new int[] {3,3,3};
+        room = new int[] {4,4,4};
     }
 
     public static void main(String[] args) {
         boolean facingEast = true;
         boolean notInCorner = true;
         boolean shouldPutBeeper = true;
+        
         while (notInCorner) {
-            moveToWall(shouldPutBeeper);
+            shouldPutBeeper = moveToWall(shouldPutBeeper);
             notInCorner = goUp(facingEast);
             facingEast = !facingEast;
-            shouldPutBeeper = notBlockedByWall();
         }
     }
 
     private static boolean goUp(boolean facingEast) {
         turn(facingEast);
         if (notBlockedByWall()) {
-            move(shouldPutBeeper);
+            move();
             turn(facingEast);
             return true;
         } else {
@@ -39,23 +39,22 @@ public class Checkerboard extends Karel {
 
     private static boolean moveToWall(boolean shouldPutBeeper) {
         while (notBlockedByWall()) {
-            shouldPutBeeper = !shouldPutBeeper;
             if (shouldPutBeeper) {
                 putBeeper();
             }
+            shouldPutBeeper = !shouldPutBeeper;
             move();
+        }
+        if (shouldPutBeeper) {
+            putBeeper();
         }
         shouldPutBeeper = !shouldPutBeeper;
         return shouldPutBeeper;
     }
+    
     private static void turnRight() {
         turnLeft();
         turnLeft();
         turnLeft();
     }
-    public static void move(boolean shouldPutBeeper) {
-        move();
-        shouldPutBeeper = !shouldPutBeeper;
-    }
-
 }

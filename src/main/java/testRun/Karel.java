@@ -83,7 +83,9 @@ public abstract class Karel {
     }
 
     protected static void putBeeper(){
-        sopl("putBeeper");
+        sop("putBeeper");
+        sopd("\tat xy = %s", xy);
+        sopl("");
     }
 
     private static void sop(String format, Object... args) {
