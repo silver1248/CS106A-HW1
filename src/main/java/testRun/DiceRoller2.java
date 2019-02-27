@@ -11,6 +11,12 @@ public class DiceRoller2 {
         Random dice = new Random();
         return dice.nextInt(6) + 1; 
     }
+    private static int rollDice(int sides, int numberOfDice) {
+        for (int i = 0; i <= numberOfDice; i++) {
+            getRandomBetweenOneAnd(6);
+        }
+        return getRandomBetweenOneAnd(6);
+    }
     
     /**
      * This is correct, don't change this.  Running this should produce the output below.  Note that
