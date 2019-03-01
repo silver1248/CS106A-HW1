@@ -12,8 +12,9 @@ public class DiceRoller2 {
         return dice.nextInt(6) + 1; 
     }
     private static int rollDice(int sides, int numberOfDice) {
-        for (int i = 0; i <= numberOfDice; i++) {
+        for (int i = 0; i < numberOfDice; i++) {
             getRandomBetweenOneAnd(6);
+            System.out.println(getRandomBetweenOneAnd(6));
         }
         return getRandomBetweenOneAnd(6);
     }
@@ -38,7 +39,8 @@ public class DiceRoller2 {
      * 1
      * 4
      * 4
-     * 6
+     * 6 
+     * 
      * 
      * The result of 4, 6 sided dice is: 15
      * </PRE>
