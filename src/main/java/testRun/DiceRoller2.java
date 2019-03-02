@@ -9,7 +9,17 @@ public class DiceRoller2 {
      */
     private static int getRandomBetweenOneAnd(int bound) {
         Random dice = new Random();
-        return dice.nextInt(6) + 1; 
+        return dice.nextInt(bound) + 1; 
+    }
+    
+    private static int rollDice(int sides, int numberOfDice) {
+        int total = 0;
+        for (int i = 0; i < numberOfDice; i++) {
+            final int holder = getRandomBetweenOneAnd(sides);
+            System.out.println(holder);
+            total = total + holder;
+        }
+        return total;
     }
     
     /**
@@ -38,8 +48,8 @@ public class DiceRoller2 {
      * </PRE>
      */
     public static void main(String[] args) {
-        int sides = 6;
-        int numberOfDice = 4;
+        int sides = 8;
+        int numberOfDice = 3;
         System.out.println("\nThe result of "+numberOfDice+", "+sides+" sided dice is: " 
                 + rollDice(sides, numberOfDice));
     }
