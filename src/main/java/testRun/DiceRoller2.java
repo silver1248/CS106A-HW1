@@ -16,6 +16,12 @@ public class DiceRoller2 {
             "WISDOM", 
             "CHARISMA"
     );
+    final static List<String> people = List.of(
+            "Xavier",
+            "Dorian",
+            "Will",
+            "Collin"
+    );
 
     private static int getRandomBetweenOneAnd(int bound) {
         Random dice = new Random();
@@ -32,8 +38,17 @@ public class DiceRoller2 {
     }
     
     public static void main(String[] args) {
-        for (final String stat : stats) {
-            System.out.println(String.format("%-14s: %s", stat, rollDice(sides, numberOfDice)));
+        for (final String person : people){
+            System.out.println();
+            System.out.println(person);
+            System.out.println();
+            for (final String stat : stats) {
+                System.out.println(String.format("%-14s: %s", stat, rollDice(sides, numberOfDice)));
+            }
         }
+        
+        
+        
+        
     }
 }
