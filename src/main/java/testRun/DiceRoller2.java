@@ -39,12 +39,12 @@ public class DiceRoller2 {
     
     public static void main(String[] args) {
         for (final String person : people){
-            System.out.println();
             System.out.print(person);
             System.out.println(":");
             for (final String stat : stats) {
                 System.out.println(String.format("%-14s: %s", stat, rollDice(sides, numberOfDice)));
             }
+            System.out.println();
         }
         
         
