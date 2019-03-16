@@ -6,7 +6,10 @@ public class weirdCounting {
         for (int i = 1; i <= 10; i++) {
             System.out.println(i);
             for(int j = 1; j <= i; j++) {
-                System.out.println("\t" + j);
+                for (int k = 1; k <= i; k++ ){
+                    System.out.print("\t");    
+                }
+                System.out.println(j);
             }
         }
     }
