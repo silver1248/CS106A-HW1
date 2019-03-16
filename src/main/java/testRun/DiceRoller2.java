@@ -6,7 +6,7 @@ import io.vavr.collection.List;
 
 public class DiceRoller2 {
 
-    final static int sides = 8;
+    final static int sides = 6;
     final static int numberOfDice = 3;
     final static List<String> stats = List.of(
             "STRENGTH", 
@@ -47,7 +47,7 @@ public class DiceRoller2 {
         for (final String gameNum : gameNumbers) {
             System.out.println(gameNum + ":");
             for (final String person : people) {
-                System.out.println(String.format("      %s:", person));
+                System.out.println(String.format("\t%s:", person));
                 for (final String stat : stats) {
                     System.out.println(String.format("\t\t%-16s: %s", stat, rollDice(sides, numberOfDice)));
                 }

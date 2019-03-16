@@ -1,20 +1,21 @@
 package testRun;
 
-import java.util.Random;
 
 public class weirdCounting {
-    private static void weirdCounting() {
-        for (i = 1; i < 10; i++());{
+    private static void count() {
+        for (int i = 1; i <= 10; i++) {
+//            System.out.println();
             System.out.println(i);
-            for(j = 1; j > i; j++) {                
-                System.out.println();
-            }
+//            System.out.println();
+            for(int j = 1; j <= i; j++) {
+                System.out.println("\t" + j);
             }
         }
-    
-    
-    public static void main(String[] args) {
-        
     }
-    
+
+
+    public static void main(String[] args) {
+        count();
+    }
+
 }
